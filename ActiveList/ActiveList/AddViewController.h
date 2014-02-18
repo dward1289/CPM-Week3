@@ -11,7 +11,6 @@
 @interface AddViewController : UIViewController
 {
     IBOutlet UIDatePicker *theDate;
-    IBOutlet UIDatePicker *theTime;
     IBOutlet UISegmentedControl *rateIt;
     IBOutlet UISegmentedControl *wrb;
     IBOutlet UITextField *dateTxt;
@@ -22,4 +21,5 @@
 
 -(IBAction)saveItem:(id)sender;
 -(IBAction)onCancel:(id)sender;
+-(IBAction)onDate:(id)sender;
 @end

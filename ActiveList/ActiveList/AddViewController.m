@@ -26,14 +26,32 @@
 
 - (void)viewDidLoad
 {
-    theDate.hidden = TRUE;
-    theTime.hidden = TRUE;
+    
 
     
     [super viewDidLoad];
+    
     // Do any additional setup after loading the view from its nib.
 }
 
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    [textField resignFirstResponder];
+    return NO;
+}
+
+- (void) textFieldDidBeginEditing:(UITextField *)textField {
+    [dateTxt resignFirstResponder];
+    return ;
+}
+
+-(IBAction)onDate:(id)sender{
+        NSDate *date = theDate.date;
+    NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
+    [dateFormat setDateFormat:@"MMMM d, yyyy"];
+
+        dateTxt.text = [dateFormat stringFromDate:date];
+    
+}
 //Save entry
 -(IBAction)saveItem:(id)sender{
     

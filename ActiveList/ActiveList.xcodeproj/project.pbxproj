@@ -21,7 +21,7 @@
 		F42015A118B2D29700745819 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F420158318B2D29700745819 /* UIKit.framework */; };
 		F42015A918B2D29700745819 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = F42015A718B2D29700745819 /* InfoPlist.strings */; };
 		F42015AB18B2D29700745819 /* ActiveListTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F42015AA18B2D29700745819 /* ActiveListTests.m */; };
-		F457D6D418B2F515007BBA79 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F457D6D318B2F515007BBA79 /* Parse.framework */; };
+		F449141518B3B2B800898323 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F449141418B3B2B800898323 /* Parse.framework */; };
 		F457D6D618B2F556007BBA79 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F457D6D518B2F556007BBA79 /* AudioToolbox.framework */; };
 		F457D6D818B2F560007BBA79 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F457D6D718B2F560007BBA79 /* CFNetwork.framework */; };
 		F457D6DA18B2F577007BBA79 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F457D6D918B2F577007BBA79 /* CoreLocation.framework */; };
@@ -65,7 +65,7 @@
 		F42015A618B2D29700745819 /* ActiveListTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ActiveListTests-Info.plist"; sourceTree = "<group>"; };
 		F42015A818B2D29700745819 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		F42015AA18B2D29700745819 /* ActiveListTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ActiveListTests.m; sourceTree = "<group>"; };
-		F457D6D318B2F515007BBA79 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
+		F449141418B3B2B800898323 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
 		F457D6D518B2F556007BBA79 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		F457D6D718B2F560007BBA79 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		F457D6D918B2F577007BBA79 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
@@ -91,12 +91,12 @@
 				F457D6E018B2F5A5007BBA79 /* QuartzCore.framework in Frameworks */,
 				F457D6DE18B2F59B007BBA79 /* MobileCoreServices.framework in Frameworks */,
 				F457D6DC18B2F583007BBA79 /* libz.dylib in Frameworks */,
+				F449141518B3B2B800898323 /* Parse.framework in Frameworks */,
 				F457D6DA18B2F577007BBA79 /* CoreLocation.framework in Frameworks */,
 				F420158218B2D29700745819 /* CoreGraphics.framework in Frameworks */,
 				F457D6D818B2F560007BBA79 /* CFNetwork.framework in Frameworks */,
 				F457D6D618B2F556007BBA79 /* AudioToolbox.framework in Frameworks */,
 				F420158418B2D29700745819 /* UIKit.framework in Frameworks */,
-				F457D6D418B2F515007BBA79 /* Parse.framework in Frameworks */,
 				F420158018B2D29700745819 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -117,6 +117,7 @@
 		F420157318B2D29700745819 = {
 			isa = PBXGroup;
 			children = (
+				F449141418B3B2B800898323 /* Parse.framework */,
 				F420158518B2D29700745819 /* ActiveList */,
 				F42015A418B2D29700745819 /* ActiveListTests */,
 				F420157E18B2D29700745819 /* Frameworks */,
@@ -145,7 +146,6 @@
 				F457D6D918B2F577007BBA79 /* CoreLocation.framework */,
 				F457D6D718B2F560007BBA79 /* CFNetwork.framework */,
 				F457D6D518B2F556007BBA79 /* AudioToolbox.framework */,
-				F457D6D318B2F515007BBA79 /* Parse.framework */,
 				F420157F18B2D29700745819 /* Foundation.framework */,
 				F420158118B2D29700745819 /* CoreGraphics.framework */,
 				F420158318B2D29700745819 /* UIKit.framework */,
@@ -447,6 +447,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					/Users/devonaward/Desktop/ActiveList,
+					"/Users/devonaward/Desktop/CPM-Week3/ActiveList",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ActiveList/ActiveList-Prefix.pch";
@@ -464,6 +465,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					/Users/devonaward/Desktop/ActiveList,
+					"/Users/devonaward/Desktop/CPM-Week3/ActiveList",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ActiveList/ActiveList-Prefix.pch";
