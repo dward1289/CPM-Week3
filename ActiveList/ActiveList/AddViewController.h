@@ -12,10 +12,16 @@
 {
     IBOutlet UIDatePicker *theDate;
     IBOutlet UISegmentedControl *rateIt;
-    IBOutlet UISegmentedControl *wrb;
-    IBOutlet UITextField *dateTxt;
+    IBOutlet UISegmentedControl *walkRun;
+    IBOutlet UILabel *dateTxt;
     IBOutlet UITextField *milesTxt;
     IBOutlet UITextField *timeTxt;
+    NSString *dateEntered;
+    NSString *timeEntered;
+    NSString *milesEntered;
+    NSString *rateTxt;
+    NSString *wrbTxt;
+
 
 }
 

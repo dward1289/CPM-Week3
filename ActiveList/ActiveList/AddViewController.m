@@ -26,7 +26,11 @@
 
 - (void)viewDidLoad
 {
+    NSDate *currentDate = [NSDate date];
+    NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
+    [dateFormat setDateFormat:@"MMMM d, yyyy"];
     
+    dateTxt.text = [dateFormat stringFromDate:currentDate];
 
     
     [super viewDidLoad];
@@ -45,15 +49,21 @@
 }
 
 -(IBAction)onDate:(id)sender{
-        NSDate *date = theDate.date;
+    NSDate *date = theDate.date;
     NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
     [dateFormat setDateFormat:@"MMMM d, yyyy"];
 
-        dateTxt.text = [dateFormat stringFromDate:date];
+    dateTxt.text = [dateFormat stringFromDate:date];
     
 }
 //Save entry
 -(IBAction)saveItem:(id)sender{
+    
+    wrbTxt = [walkRun titleForSegmentAtIndex:walkRun.selectedSegmentIndex];
+    rateTxt = [rateIt titleForSegmentAtIndex:rateIt.selectedSegmentIndex];
+    dateEntered = dateTxt.text;
+    timeEntered = timeTxt.text;
+    milesEntered = milesTxt.text;
     
 }
 

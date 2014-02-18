@@ -6,13 +6,13 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AddViewController">
             <connections>
-                <outlet property="dateTxt" destination="35R-qU-dVf" id="Eea-ge-cBv"/>
+                <outlet property="dateTxt" destination="EKi-HS-hSM" id="PdI-c0-edG"/>
                 <outlet property="milesTxt" destination="Z5j-Di-gKR" id="gEk-fk-ZLl"/>
                 <outlet property="rateIt" destination="ibp-Jh-cnq" id="3m4-99-fk6"/>
                 <outlet property="theDate" destination="YMW-ov-90z" id="uwO-FO-Oma"/>
                 <outlet property="timeTxt" destination="OQt-SW-ZT1" id="jP4-Bl-ouu"/>
                 <outlet property="view" destination="1" id="3"/>
-                <outlet property="wrb" destination="2He-Tz-H6k" id="fAj-1L-j3t"/>
+                <outlet property="walkRun" destination="2He-Tz-H6k" id="205-VW-VXv"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -86,15 +86,6 @@
                         <segment title="Tough"/>
                     </segments>
                 </segmentedControl>
-                <textField opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="February 12, 2014" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="35R-qU-dVf">
-                    <rect key="frame" x="150" y="73" width="134" height="30"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                    <textInputTraits key="textInputTraits"/>
-                    <connections>
-                        <outlet property="delegate" destination="-1" id="bw7-A9-gs8"/>
-                    </connections>
-                </textField>
                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="45" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OQt-SW-ZT1">
                     <rect key="frame" x="150" y="147" width="93" height="30"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -141,9 +132,16 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
 </data>
                     </timeZone>
                     <connections>
-                        <action selector="onDate:" destination="-1" eventType="valueChanged" id="Kko-sz-vtP"/>
+                        <action selector="onDate:" destination="-1" eventType="valueChanged" id="tJM-9S-5js"/>
                     </connections>
                 </datePicker>
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EKi-HS-hSM">
+                    <rect key="frame" x="150" y="82" width="134" height="21"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
