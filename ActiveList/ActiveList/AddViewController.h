@@ -15,9 +15,11 @@
     IBOutlet UISegmentedControl *walkRun;
     IBOutlet UILabel *dateTxt;
     IBOutlet UITextField *milesTxt;
-    IBOutlet UITextField *timeTxt;
+    IBOutlet UITextField *minuteTxt;
+    IBOutlet UITextField *secondTxt;
     NSString *dateEntered;
-    NSString *timeEntered;
+    NSString *minuteEntered;
+    NSString *secondEntered;
     NSString *milesEntered;
     NSString *rateTxt;
     NSString *wrbTxt;
