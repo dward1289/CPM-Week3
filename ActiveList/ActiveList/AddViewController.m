@@ -7,6 +7,7 @@
 //
 
 #import "AddViewController.h"
+#import <Parse/Parse.h>
 
 
 @interface AddViewController ()
@@ -31,10 +32,7 @@
     NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
     [dateFormat setDateFormat:@"MMMM d, yyyy"];
     dateTxt.text = [dateFormat stringFromDate:currentDate];
-
-    
     [super viewDidLoad];
-    
     // Do any additional setup after loading the view from its nib.
 }
 
@@ -64,7 +62,6 @@
     rateTxt = [rateIt titleForSegmentAtIndex:rateIt.selectedSegmentIndex];
     dateEntered = dateTxt.text;
     minuteEntered = minuteTxt.text;
-    secondEntered = secondTxt.text;
     milesEntered = milesTxt.text;
 }
 

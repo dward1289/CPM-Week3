@@ -18,6 +18,8 @@
                   clientKey:@"SManZDRxGK98OogOkkXdU8xbyBk6vLVDtssRPZXT"];
     
     [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
+    
+  
     return YES;
 }
 							

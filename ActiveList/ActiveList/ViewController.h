@@ -9,10 +9,28 @@
 #import <UIKit/UIKit.h>
 #import <Parse/Parse.h>
 
-@interface ViewController : UIViewController
+@interface ViewController : UIViewController 
 {
     IBOutlet UIBarButtonItem *doneBtn;
     IBOutlet UIBarButtonItem *editBtn;
+    IBOutlet UITextView *dataHere;
+    NSString *dateTxt;
+    NSString *eTxt;
+    NSString *timeTxt;
+    NSString *mileTxt;
+    NSInteger *milesNum;
+    NSString *rateTxt;
+    NSString *allData;
+    
+    NSMutableArray *theDated;
+    NSMutableArray *theExercise;
+    NSMutableArray *theTimes;
+    NSMutableArray *theMiles;
+    NSMutableArray *theRate;
+    NSMutableArray *ALLDATA;
+    NSMutableString *displayString;
+    
+    
 }
 
 -(IBAction)addNew:(id)sender;
