@@ -34,6 +34,9 @@
     dateTxt.text = [dateFormat stringFromDate:currentDate];
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"ActiveLog" message: @"Complete all fields before saving, or an error will occur." delegate: nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+    [alert show];
 }
 
 //Dismisses keyboard when "Done" is pressed
@@ -50,20 +53,39 @@
     dateTxt.text = [dateFormat stringFromDate:date];
 }
 
-//Limits text for minutes and seconds
+//Limits text for minutes
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
 {
-    return textField.text.length + (string.length - range.length) <= 2;
+    return textField.text.length + (string.length - range.length) <= 4;
 }
 
-//Save entry
+
+//Save entry to Parse database
 -(IBAction)saveItem:(id)sender{
     wrbTxt = [walkRun titleForSegmentAtIndex:walkRun.selectedSegmentIndex];
     rateTxt = [rateIt titleForSegmentAtIndex:rateIt.selectedSegmentIndex];
     dateEntered = dateTxt.text;
     minuteEntered = minuteTxt.text;
     milesEntered = milesTxt.text;
+    int mE = milesEntered.intValue;
+    
+    PFObject *savedObject = [PFObject objectWithClassName:@"TheLog"];
+    savedObject[@"Date"] = dateEntered;
+    savedObject[@"Exercise"] = wrbTxt;
+    savedObject[@"Time"] = minuteEntered;
+    savedObject[@"Miles"] = [NSNumber numberWithInt:mE];
+    savedObject[@"RYE"] = rateTxt;
+    [savedObject saveInBackground];
+    
+    //Confirms the save has been completed
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Success!" message: @"ActiveLog entry saved. Refresh to update your ActiveLog list." delegate: nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+    [alert show];
+    
+    [self dismissViewControllerAnimated:YES completion:nil];
+    
+    
 }
+
 
 //Go back to main screen
 -(IBAction)onCancel:(id)sender{

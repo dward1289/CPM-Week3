@@ -11,8 +11,6 @@
 
 @interface ViewController : UIViewController 
 {
-    IBOutlet UIBarButtonItem *doneBtn;
-    IBOutlet UIBarButtonItem *editBtn;
     IBOutlet UITextView *dataHere;
     NSString *dateTxt;
     NSString *eTxt;
@@ -34,4 +32,5 @@
 }
 
 -(IBAction)addNew:(id)sender;
+-(IBAction)onRefresh:(id)sender;
 @end

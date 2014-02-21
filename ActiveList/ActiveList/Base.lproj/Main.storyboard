@@ -16,46 +16,16 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Nt-Iv-mVb">
-                                <rect key="frame" x="0.0" y="64" width="320" height="42"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="rWt-ii-YBD">
-                                <rect key="frame" x="7" y="71" width="134" height="29"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <segments>
-                                    <segment title="Walk"/>
-                                    <segment title="Run"/>
-                                    <segment title="Both"/>
-                                </segments>
-                            </segmentedControl>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="FqH-tO-WFg">
-                                <rect key="frame" x="157" y="71" width="155" height="29"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <segments>
-                                    <segment title="Great"/>
-                                    <segment title="Well"/>
-                                    <segment title="Tough"/>
-                                </segments>
-                            </segmentedControl>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SBu-5Z-eQW">
-                                <rect key="frame" x="0.0" y="106" width="320" height="38"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <state key="normal" title="Begin Query">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                            </button>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ecC-rR-dU2">
                                 <rect key="frame" x="0.0" y="20" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <items>
-                                    <barButtonItem systemItem="edit" id="w4h-Xc-7VJ"/>
-                                    <barButtonItem systemItem="done" id="SFZ-0D-JhE"/>
-                                    <barButtonItem width="180" style="plain" systemItem="fixedSpace" id="xdS-HZ-12N"/>
+                                    <barButtonItem systemItem="refresh" id="w4h-Xc-7VJ">
+                                        <connections>
+                                            <action selector="onRefresh:" destination="vXZ-lx-hvc" id="O2O-px-oXr"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem width="238" style="plain" systemItem="fixedSpace" id="xdS-HZ-12N"/>
                                     <barButtonItem systemItem="add" id="lcX-NL-GLu">
                                         <connections>
                                             <action selector="addNew:" destination="vXZ-lx-hvc" id="mrf-8G-sbs"/>
@@ -64,7 +34,7 @@
                                 </items>
                             </toolbar>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" text="LOADING..." translatesAutoresizingMaskIntoConstraints="NO" id="rEL-3n-2lC">
-                                <rect key="frame" x="7" y="152" width="305" height="316"/>
+                                <rect key="frame" x="7" y="72" width="305" height="396"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -76,8 +46,6 @@
                     <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
                     <connections>
                         <outlet property="dataHere" destination="rEL-3n-2lC" id="7pt-dp-819"/>
-                        <outlet property="doneBtn" destination="SFZ-0D-JhE" id="6ZD-zQ-Hcn"/>
-                        <outlet property="editBtn" destination="w4h-Xc-7VJ" id="QLn-R2-MO0"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
