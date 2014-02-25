@@ -8,78 +8,37 @@
         android:id="@+id/textView1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/TS"/>
+        android:text="@string/SR" />
 
-        <RadioGroup
-        android:id="@+id/radioAMPM"
-        android:orientation="horizontal"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" >
-
-            <Spinner
-                android:id="@+id/spinner"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1" 
-                android:entries="@array/time"/>
- 
-        <RadioButton
-            android:id="@+id/radioAM"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/am"/>
- 
-        <RadioButton
-            android:id="@+id/radioPM"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/pm" />
- 
-    </RadioGroup>
-
-        <TextView
-            android:id="@+id/textView2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/SF" />
-
-        <RadioGroup
-        android:id="@+id/radioSF"
-        android:orientation="horizontal"
+    <Spinner
+        android:id="@+id/spinnerRate"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
- 
-        <RadioButton
-            android:id="@+id/radioS"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/start"/>
- 
-        <RadioButton
-            android:id="@+id/radioF"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/finish" />
+        android:layout_height="wrap_content" 
+        android:entries="@array/rated"/>
 
-        <Button
-            android:id="@+id/button1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/BQ" 
-            android:layout_marginLeft="50dp"/>
- 
-    </RadioGroup>
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/SA" />
 
-        <TextView
-            android:id="@+id/textView3"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="#9C999E" />
+    <Spinner
+        android:id="@+id/spinnerActive"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" 
+        android:entries="@array/active"/>
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/BQ" 
+        android:onClick="onQuery"/>
 
     <ListView
         android:id="@+id/listview"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" >
+        android:layout_height="347dp" >
 
      </ListView>
      

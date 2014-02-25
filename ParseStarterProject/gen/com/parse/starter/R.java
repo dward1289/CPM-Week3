@@ -9,7 +9,8 @@ package com.parse.starter;
 
 public final class R {
     public static final class array {
-        public static final int time=0x7f050000;
+        public static final int active=0x7f050001;
+        public static final int rated=0x7f050000;
     }
     public static final class attr {
     }
@@ -17,26 +18,20 @@ public final class R {
         public static final int ic_launcher=0x7f020000;
     }
     public static final class id {
-        public static final int button1=0x7f060009;
-        public static final int listview=0x7f06000b;
-        public static final int radioAM=0x7f060003;
-        public static final int radioAMPM=0x7f060001;
-        public static final int radioF=0x7f060008;
-        public static final int radioPM=0x7f060004;
-        public static final int radioS=0x7f060007;
-        public static final int radioSF=0x7f060006;
-        public static final int spinner=0x7f060002;
+        public static final int button=0x7f060004;
+        public static final int listview=0x7f060005;
+        public static final int spinnerActive=0x7f060003;
+        public static final int spinnerRate=0x7f060001;
         public static final int textView1=0x7f060000;
-        public static final int textView2=0x7f060005;
-        public static final int textView3=0x7f06000a;
+        public static final int textView2=0x7f060002;
     }
     public static final class layout {
         public static final int main=0x7f030000;
     }
     public static final class string {
         public static final int BQ=0x7f040006;
-        public static final int SF=0x7f040008;
-        public static final int TS=0x7f040007;
+        public static final int SA=0x7f040008;
+        public static final int SR=0x7f040007;
         public static final int am=0x7f040002;
         public static final int app_name=0x7f040001;
         public static final int finish=0x7f040005;
