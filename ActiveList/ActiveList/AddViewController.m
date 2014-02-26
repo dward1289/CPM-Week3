@@ -49,7 +49,7 @@
 -(IBAction)onDate:(id)sender{
     NSDate *date = theDate.date;
     NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
-    [dateFormat setDateFormat:@"MMMM d, yyyy"];
+    [dateFormat setDateFormat:@"M/dd/yyyy"];
     dateTxt.text = [dateFormat stringFromDate:date];
 }
 

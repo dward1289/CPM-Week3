@@ -9,6 +9,24 @@
     <string name="BQ">Begin Query</string>
     <string name="SR">Select an exercise rate:</string>
     <string name="SA">Select an activity:</string>
+    <string name="great">Great</string>
+    <string name="well">Well</string>
+    <string name="tough">Tough</string>
+    <string name="walk">Walk</string>
+    <string name="run">Run</string>
+    <string name="date">Date:</string>
+    <string name="exe">Exercise:</string>
+    <string name="time">Time:</string>
+    <string name="mile">Miles (round to the nearest mile):</string>
+    <string name="rye">Rate Your Exercise:</string>
+    <string name="both">Both</string>
+    <string name="dhint">February 22, 2014</string>
+    <string name="thint">30</string>
+    <string name="mhint">2</string>
+    <string name="btntxt">Pick a Date</string>
+    <string name="saver">Save</string>
+    <string name="cancelr">Cancel</string>
+    
     <string-array name="rated">
         <item>Great</item>
         <item>Well</item>
