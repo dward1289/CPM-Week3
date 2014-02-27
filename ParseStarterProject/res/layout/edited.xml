@@ -21,15 +21,12 @@
     android:orientation="horizontal" >
     
 
-    <EditText
+    <TextView
         android:id="@+id/dEdit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:ems="10" 
-        android:hint="@string/dhint">
-
-        <requestFocus />
-    </EditText>
+        android:layout_marginRight="50dp">
+    </TextView>
 
     <Button
         android:id="@+id/dBtn"
@@ -172,14 +169,16 @@
 	    android:id="@+id/buttonCancel"
 	    android:layout_width="wrap_content"
 	    android:layout_height="wrap_content"
-	    android:text="@string/cancelr" />
+	    android:text="@string/cancelr"
+	    android:onClick="onBack" />
 
 	<Button
 	    android:id="@+id/buttonSaver"
 	    android:layout_width="wrap_content"
 	    android:layout_height="wrap_content"
 	    android:text= "@string/saver" 
-	    android:layout_marginLeft="50dp"/>
+	    android:layout_marginLeft="50dp"
+	    android:onClick="onSave"/>
 	</LinearLayout>
 
 </LinearLayout>

@@ -27,13 +27,36 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content" 
         android:entries="@array/active"/>
+    
+    <LinearLayout
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal" >
+
+    <Button
+        android:id="@+id/button1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/addit" 
+        android:onClick="onAdd"
+        android:layout_marginRight="10dp"/>
 
     <Button
         android:id="@+id/button"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/BQ" 
+        android:text="@string/BQ"
+        android:layout_marginRight="10dp" 
         android:onClick="onQuery"/>
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/all"
+        android:onClick="showAll" />
+
+    </LinearLayout>
 
     <ListView
         android:id="@+id/listview"

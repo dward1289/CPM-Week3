@@ -1,7 +1,7 @@
 package com.parse.starter;
 
 import java.util.ArrayList;
-import java.util.List;
+
 
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -9,16 +9,14 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Spinner;
+import android.widget.Toast;
 
-import com.parse.FindCallback;
+
 import com.parse.ParseAnalytics;
-import com.parse.ParseException;
 import com.parse.ParseObject;
 import com.parse.ParseQuery;
 import com.parse.ParseQueryAdapter;
@@ -31,6 +29,7 @@ public class ParseStarterProjectActivity extends Activity {
 	String TIME;
 	int MILES;
 	String RYE;
+	String TheID;
 	String rateSpinner;
 	String activitySpinner;
 	ParseQueryAdapter<ParseObject> adapter;
@@ -59,13 +58,15 @@ public class ParseStarterProjectActivity extends Activity {
 		  listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 			       public void onItemClick(AdapterView<?> parentAdapter, View view, int position,
 			                               long id) {
-			    	   parseObject = adapter.getItem(position);
-			    	   
+			    	   parseObject = (ParseObject) listView.getItemAtPosition(position);
+			 
 			    	   DATED = parseObject.getString("Date");
 			    	   EXERCISE = parseObject.getString("Exercise");
 			    	   TIME = parseObject.getString("Time");
 			    	   MILES = parseObject.getInt("Miles");
 			    	   RYE = parseObject.getString("RYE");
+			    	   TheID = parseObject.getObjectId();
+			    	   
 			    	   
 			    	   //Display alert for edit and delete options
 			    	   AlertDialog.Builder builder = new AlertDialog.Builder(ParseStarterProjectActivity.this);
@@ -84,6 +85,7 @@ public class ParseStarterProjectActivity extends Activity {
 		                        //Delete item
 		                    	parseObject.deleteInBackground();
 		                    	adapter.loadObjects();
+		                    	Toast.makeText(getApplicationContext(), "Log has been deleted", Toast.LENGTH_SHORT).show();
 		                    }
 		                });
 		                builder.setNeutralButton("Cancel", new DialogInterface.OnClickListener() {
@@ -100,7 +102,6 @@ public class ParseStarterProjectActivity extends Activity {
 	}
 	
 	public void onQuery(View v){
-		Log.i("BUTTON CLICK", "BUTTON WORKING");
 		//Spinner items
 		Spinner theSpinnerA = (Spinner)findViewById(R.id.spinnerActive);
 		Spinner theSpinnerR = (Spinner)findViewById(R.id.spinnerRate);
@@ -115,29 +116,19 @@ public class ParseStarterProjectActivity extends Activity {
    
 	//Query the data.
 	public void theCall(){
-		
-		
-		ParseQuery<ParseObject> query = ParseQuery.getQuery("TheLog");
-		query.whereEqualTo("RYE", rateSpinner);
-		query.whereEqualTo("Exercise", activitySpinner);
-		query.findInBackground(new FindCallback<ParseObject>() {
-		   
-			@Override
-			public void done(List<ParseObject>objects, ParseException e) {
-				if (e == null) {
-					for (ParseObject object : objects) {
+		ParseQueryAdapter<ParseObject> adapter2 =
+				new ParseQueryAdapter<ParseObject>(this, new ParseQueryAdapter.QueryFactory<ParseObject>() {
+				@SuppressWarnings("unchecked")
+				public ParseQuery<ParseObject> create() {
+				@SuppressWarnings("rawtypes")
+				ParseQuery query = new ParseQuery("TheLog");
+				query.whereEqualTo("RYE", rateSpinner);
+				query.whereEqualTo("Exercise", activitySpinner);
+				return query;
+				}});
+		adapter2.setTextKey("Date");
 
-						//Display list of queried objects in listview.
-						String newItem = object.getString("Date");
-						
-						queryList.add(object);
-						 
-					}
-				    } else {
-				      // something went wrong
-				    }
-				  }
-				});	
+     listView.setAdapter(adapter2);
 	}
 	
 	//Navigate to editing screen
@@ -147,7 +138,18 @@ public class ParseStarterProjectActivity extends Activity {
     	i.putExtra("EXERCISE", EXERCISE); 
     	i.putExtra("TIME", TIME); 
     	i.putExtra("MILES", MILES);
-    	i.putExtra("RYE", RYE); 
+    	i.putExtra("RYE", RYE);
+    	i.putExtra("ID", TheID);
     	startActivity(i);
+	}
+	//Add new item
+	public void onAdd(View view) {
+		Intent myIntent = new Intent(this, EditData.class);
+		this.startActivity(myIntent);
+		}
+	//Show all objects 
+	public void showAll(View view){
+		listView.setAdapter(adapter);
+		adapter.loadObjects();
 	}
 }

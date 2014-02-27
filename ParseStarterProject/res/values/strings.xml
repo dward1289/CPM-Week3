@@ -26,6 +26,8 @@
     <string name="btntxt">Pick a Date</string>
     <string name="saver">Save</string>
     <string name="cancelr">Cancel</string>
+    <string name="addit">Create New Log</string>
+    <string name="all">Show All</string>
     
     <string-array name="rated">
         <item>Great</item>

@@ -3,6 +3,11 @@ package com.parse.starter;
 
 import java.util.Calendar;
 
+import com.parse.GetCallback;
+import com.parse.ParseException;
+import com.parse.ParseObject;
+import com.parse.ParseQuery;
+
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
@@ -15,6 +20,8 @@ import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.RadioButton;
+import android.widget.TextView;
+import android.widget.Toast;
 
 
 public class EditData extends Activity {
@@ -27,7 +34,7 @@ public class EditData extends Activity {
 	DatePicker datePicker;
 	
 	//UI Items
-	EditText dateTxt;
+	TextView dateTxt;
 	EditText timeTxt;
 	EditText mileTxt;
 	RadioButton GREAT;
@@ -37,6 +44,9 @@ public class EditData extends Activity {
 	RadioButton RUN;
 	RadioButton BOTH;
 	Button buttonDate;
+	String TheID;
+	String EXEresult;
+	String RYEresult;
 	
 			
 	/** Called when the activity is first created. */
@@ -45,7 +55,7 @@ public class EditData extends Activity {
 		setContentView(R.layout.edited);
 		
 		//UI Items
-		dateTxt = (EditText)findViewById(R.id.dEdit);
+		dateTxt = (TextView)findViewById(R.id.dEdit);
 		timeTxt = (EditText)findViewById(R.id.TEdit);
 		mileTxt = (EditText)findViewById(R.id.MileEdit);
 		GREAT = (RadioButton)findViewById(R.id.radioGreat);
@@ -55,15 +65,19 @@ public class EditData extends Activity {
 		RUN = (RadioButton)findViewById(R.id.radioRun);
 		BOTH = (RadioButton)findViewById(R.id.radioBoth);
 		
+		
 		//Get data for selected item
 		Bundle extras = getIntent().getExtras();
+		if (extras == null) {
+			  return;
+			}
 		  if (extras != null) {
-		
 		   DATED = extras.getString("DATED");
 		   EXE = extras.getString("EXERCISE"); 
 		   MILES =  extras.getInt("MILES"); 
 		   TIME = extras.getString("TIME");
 		   RYE = extras.getString("RYE"); 
+		   TheID = extras.getString("ID");
 		  }
 		  
 		  //Set text to to appropriate text fields
@@ -90,7 +104,7 @@ public class EditData extends Activity {
 		 }
 	}
 	
-	//Date picker created
+		//Date picker created
 		 public void selectDate(View view) {
 	   	  	DialogFragment newFragment = new SelectDateFragment();
 	   	  	newFragment.show(getFragmentManager(), "DatePicker");
@@ -117,6 +131,82 @@ public class EditData extends Activity {
 	   			  populateSetDate(yy, mm+1, dd);
 	   		  }
 	   	  }
+	   	  
+	   	//Save data
+	    public void onSave(View view) {
+	    	//Create new item
+	    	if(TheID == null){
+	    	      int MilesCompleted = Integer.parseInt(mileTxt.getText().toString());
+	    	      
+	    			 if(GREAT.isChecked()){
+	    				 RYEresult = "Great";
+	    			 }else if(WELL.isChecked()){
+	    				 RYEresult = "Well";
+	    			 }else if(TOUGH.isChecked()){
+	    				 RYEresult = "Tough";
+	    			 }
+	    			 
+	    			 if(WALK.isChecked()){
+	    				 EXEresult = "Walk";
+	    			 }else if(RUN.isChecked()){
+	    				 EXEresult = "Run";
+	    			 }else if(BOTH.isChecked()){
+	    				 EXEresult = "Both";
+	    			 }
+	    			 
+	    		ParseObject parseObject = new ParseObject("TheLog");
+	    		parseObject.put("Date",dateTxt.getText().toString());
+	    		parseObject.put("Exercise", EXEresult);
+	    		parseObject.put("Time", timeTxt.getText().toString());
+	    		parseObject.put("Miles", MilesCompleted);
+	    		parseObject.put("RYE", RYEresult);
+	    		parseObject.saveInBackground();
+	    		finish();
+	    		Toast.makeText(getApplicationContext(), "New log saved.", Toast.LENGTH_SHORT).show();
+		}else{
+			ParseQuery<ParseObject> query = ParseQuery.getQuery("TheLog");
+	    	 
+	    	// Retrieve the object by id and update current object
+	    	query.getInBackground(TheID, new GetCallback<ParseObject>() {
+	    	  public void done(ParseObject object, ParseException e) {
+	    	    if (e == null) {
+
+	    	      int MilesCompleted = Integer.parseInt(mileTxt.getText().toString());
+	    	      
+	    			 if(GREAT.isChecked()){
+	    				 RYEresult = "Great";
+	    			 }else if(WELL.isChecked()){
+	    				 RYEresult = "Well";
+	    			 }else if(TOUGH.isChecked()){
+	    				 RYEresult = "Tough";
+	    			 }
+	    			 
+	    			 if(WALK.isChecked()){
+	    				 EXEresult = "Walk";
+	    			 }else if(RUN.isChecked()){
+	    				 EXEresult = "Run";
+	    			 }else if(BOTH.isChecked()){
+	    				 EXEresult = "Both";
+	    			 }
+	    	      
+	    	      object.put("Date", dateTxt.getText().toString());
+	    	      object.put("Exercise", EXEresult);
+	    	      object.put("Time", timeTxt.getText().toString());
+	    	      object.put("Miles", MilesCompleted);
+	    	      object.put("RYE", RYEresult);
+	    	      object.saveInBackground();
+	    	      
+	    	      finish();
+	    	      Toast.makeText(getApplicationContext(), "Log has been updated.", Toast.LENGTH_SHORT).show();
+	    	    }
+	    	  }
+	    	});
+		}
+	    }
+	    //Return to home screen
+	    public void onBack(View view){
+	    	finish();
+	    }
 
 }
 

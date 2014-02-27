@@ -20,12 +20,14 @@ public final class R {
     public static final class id {
         public static final int MileEdit=0x7f060009;
         public static final int TEdit=0x7f060006;
-        public static final int button=0x7f06001b;
+        public static final int button=0x7f06001c;
+        public static final int button1=0x7f06001b;
+        public static final int button2=0x7f06001d;
         public static final int buttonCancel=0x7f060017;
         public static final int buttonSaver=0x7f060018;
         public static final int dBtn=0x7f060003;
         public static final int dEdit=0x7f060002;
-        public static final int listview=0x7f06001c;
+        public static final int listview=0x7f06001e;
         public static final int radioActive=0x7f060012;
         public static final int radioBoth=0x7f060015;
         public static final int radioGreat=0x7f06000d;
@@ -56,6 +58,8 @@ public final class R {
         public static final int BQ=0x7f040006;
         public static final int SA=0x7f040008;
         public static final int SR=0x7f040007;
+        public static final int addit=0x7f04001a;
+        public static final int all=0x7f04001b;
         public static final int am=0x7f040002;
         public static final int app_name=0x7f040001;
         public static final int both=0x7f040013;
